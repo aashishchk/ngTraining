@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Welcome to the session</h1>
+      <div class="row">
+        <div class="col-sm-8">
+          <form #frm="ngForm">
+            <input
+              type="text"
+              name="txtInput"
+              class="form-control"
+              [(ngModel)]="inputText"
+              placeholder="Add Text"
+              [maxlength]="maxLen"
+              (input)="textLenCount($event)"
+              #txtInput
+            />
+          </form>
+          <span class="float-right mt-1" style="font-size:12px">{{
+            remText
+          }}</span>
+        </div>
+        <div class="col-sm-4">
+          <button (click)="addInputText()" class="btn btn-primary">
+            Add Text
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <ul class="list-group mt-4 list-main">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+          [ngClass]="{ 'text-light': i % 2 === 0 }"
+          [ngStyle]="{ backgroundColor: i % 2 === 0 ? '#007bff' : '#f9f9f9' }"
+          *ngFor="let input of userInputText; let i = index"
+        >
+          {{ input }}
+          <span *ngIf="i % 2 === 0" class="badge badge-warning badge-pill">
+            &mdash;
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
