@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './about/profile/profile.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserListService } from './_services/user-list.service';
+import { NewUserComponent } from './user-list/new-user/new-user.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AboutComponent, ContactComponent, HomeComponent, Error404Component, ProfileComponent, UserListComponent],
+  declarations: [AboutComponent, ContactComponent, HomeComponent, Error404Component, ProfileComponent, UserListComponent, NewUserComponent],
   imports: [CommonModule, FormsModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [UserListService]

@@ -1,0 +1,19 @@
+<h2>Add User</h2>
+<div class="well">
+  <form (submit)="addUser(f)" #f="ngForm">
+    <p *ngIf="!uname.valid && uname.touched">Username is required</p>
+    <p *ngIf="email.touched && email.invalid && email.errors && email.errors.required">Email is required</p>
+    <p *ngIf="email.touched && email.invalid && email.errors && email.errors.email">Email is not valid</p>
+    <p *ngIf="">phone is required</p>
+    <div class="row" ngModelGroup="digital_ids">
+      <div class="col-sm-2"><label>User name*</label><input name="username" type="text" required ngModel #uname="ngModel"></div>
+      <div class="col-sm-2"><label>Email*</label><input name="email" type="text" required email ngModel #email="ngModel"></div>
+      <div class="col-sm-2"><label>Phone*</label><input name="phone" type="text" required ngModel #phone="ngModel"></div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-sm-2"><label>Address</label><input name="address" type="text" ngModel></div>
+      <div class="col-sm-2"><button class="btn btn-primary mt-4" [disabled]="!f.valid">Add User</button></div>
+      <div class="col-sm-2"><button class="btn btn-default mt-4" (click)="patchValue()" type="button">Patch Phone</button></div>
+    </div>
+  </form>
+</div>
